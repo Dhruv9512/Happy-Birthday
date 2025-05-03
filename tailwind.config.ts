@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
     darkMode: ["class"],
@@ -9,6 +10,10 @@ export default {
   ],
   theme: {
   	extend: {
+      fontFamily: {
+        sans: ["var(--font-raleway)", ...fontFamily.sans], // Set Raleway as default sans
+        heading: ["var(--font-dancing-script)", ...fontFamily.sans], // Add Dancing Script for headings if needed elsewhere
+      },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -82,11 +87,16 @@ export default {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+        'fade-in': {
+           '0%': { opacity: '0' },
+           '100%': { opacity: '1' },
+         },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in': 'fade-in 0.8s ease-in-out forwards', // Added fade-in animation
   		}
   	}
   },
