@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -19,42 +20,45 @@ type LightPosition = {
 };
 
 export default function BirthdayPage() {
-  // Image positions and rotations for a heart shape using absolute positioning
-  // Values are percentages for responsiveness, rotations add dynamism
-  // Coordinates are approximate based on the reference image
+  // Image positions and rotations refined for a clearer heart shape based on reference
   const imageStyles: React.CSSProperties[] = [
-    // Top Center (Peak)
-    { top: '0%', left: '42%', width: '16%', transform: 'rotate(-2deg)', zIndex: 5 },
+    // Row 1 (Top Peak)
+    { top: '0%', left: '40%', width: '20%', transform: 'rotate(-3deg)', zIndex: 5 },
+
     // Row 2
-    { top: '10%', left: '28%', width: '18%', transform: 'rotate(3deg)', zIndex: 4 },
-    { top: '10%', left: '54%', width: '18%', transform: 'rotate(-4deg)', zIndex: 4 },
+    { top: '10%', left: '25%', width: '22%', transform: 'rotate(4deg)', zIndex: 4 },
+    { top: '10%', left: '53%', width: '22%', transform: 'rotate(-5deg)', zIndex: 4 },
+
     // Row 3
-    { top: '22%', left: '15%', width: '20%', transform: 'rotate(-5deg)', zIndex: 3 },
-    { top: '20%', left: '40%', width: '20%', transform: 'rotate(2deg)', zIndex: 6 }, // Central overlap
-    { top: '22%', left: '65%', width: '20%', transform: 'rotate(4deg)', zIndex: 3 },
+    { top: '22%', left: '12%', width: '24%', transform: 'rotate(-6deg)', zIndex: 3 },
+    { top: '20%', left: '38%', width: '24%', transform: 'rotate(2deg)', zIndex: 6 }, // Central overlap
+    { top: '22%', left: '64%', width: '24%', transform: 'rotate(5deg)', zIndex: 3 },
+
     // Row 4
-    { top: '38%', left: '5%', width: '22%', transform: 'rotate(6deg)', zIndex: 2 },
-    { top: '35%', left: '27%', width: '20%', transform: 'rotate(-3deg)', zIndex: 7 },
-    { top: '35%', left: '53%', width: '20%', transform: 'rotate(1deg)', zIndex: 7 },
-    { top: '38%', left: '73%', width: '22%', transform: 'rotate(-5deg)', zIndex: 2 },
-     // Row 5 (More central)
-    { top: '50%', left: '18%', width: '20%', transform: 'rotate(-4deg)', zIndex: 8 },
-    { top: '48%', left: '40%', width: '20%', transform: 'rotate(0deg)', zIndex: 9 }, // Bottom overlap
-    { top: '50%', left: '62%', width: '20%', transform: 'rotate(5deg)', zIndex: 8 },
-    // Row 6
-    { top: '65%', left: '30%', width: '18%', transform: 'rotate(3deg)', zIndex: 10 },
-    { top: '65%', left: '52%', width: '18%', transform: 'rotate(-2deg)', zIndex: 10 },
-    // Bottom Point
-    { top: '78%', left: '41%', width: '18%', transform: 'rotate(1deg)', zIndex: 11 },
-    // Extra smaller images for filling gaps (adjust positions as needed)
-    { top: '18%', left: '5%', width: '12%', transform: 'rotate(10deg)', zIndex: 1 },
-    { top: '18%', left: '83%', width: '12%', transform: 'rotate(-8deg)', zIndex: 1 },
-    { top: '30%', left: '0%', width: '10%', transform: 'rotate(-10deg)', zIndex: 0 },
-    { top: '30%', left: '90%', width: '10%', transform: 'rotate(12deg)', zIndex: 0 },
-    { top: '55%', left: '5%', width: '13%', transform: 'rotate(8deg)', zIndex: 7 },
-    { top: '55%', left: '82%', width: '13%', transform: 'rotate(-6deg)', zIndex: 7 },
-    { top: '75%', left: '20%', width: '12%', transform: 'rotate(-7deg)', zIndex: 9 },
-    { top: '75%', left: '68%', width: '12%', transform: 'rotate(6deg)', zIndex: 9 },
+    { top: '38%', left: '3%', width: '26%', transform: 'rotate(7deg)', zIndex: 2 },
+    { top: '35%', left: '29%', width: '22%', transform: 'rotate(-4deg)', zIndex: 7 },
+    { top: '35%', left: '51%', width: '22%', transform: 'rotate(3deg)', zIndex: 7 },
+    { top: '38%', left: '71%', width: '26%', transform: 'rotate(-8deg)', zIndex: 2 },
+
+     // Row 5 (Middle Bulge)
+    { top: '52%', left: '15%', width: '24%', transform: 'rotate(-5deg)', zIndex: 8 },
+    { top: '48%', left: '39%', width: '22%', transform: 'rotate(0deg)', zIndex: 9 }, // Central point
+    { top: '52%', left: '61%', width: '24%', transform: 'rotate(6deg)', zIndex: 8 },
+
+    // Row 6 (Tapering down)
+    { top: '65%', left: '28%', width: '20%', transform: 'rotate(4deg)', zIndex: 10 },
+    { top: '65%', left: '52%', width: '20%', transform: 'rotate(-3deg)', zIndex: 10 },
+
+    // Row 7 (Bottom Point)
+    { top: '78%', left: '40%', width: '20%', transform: 'rotate(2deg)', zIndex: 11 },
+
+    // Fillers (Adjusted for better density and shape)
+    { top: '18%', left: '6%', width: '16%', transform: 'rotate(10deg)', zIndex: 1 }, // Upper left gap filler
+    { top: '18%', left: '78%', width: '16%', transform: 'rotate(-9deg)', zIndex: 1 }, // Upper right gap filler
+    { top: '58%', left: '4%', width: '18%', transform: 'rotate(8deg)', zIndex: 7 }, // Mid-left side filler
+    { top: '58%', left: '78%', width: '18%', transform: 'rotate(-7deg)', zIndex: 7 }, // Mid-right side filler
+    { top: '72%', left: '20%', width: '15%', transform: 'rotate(-6deg)', zIndex: 9 }, // Lower left gap filler
+    { top: '72%', left: '65%', width: '15%', transform: 'rotate(5deg)', zIndex: 9 }, // Lower right gap filler
   ];
 
 
@@ -69,21 +73,28 @@ export default function BirthdayPage() {
     priority: i < 9, // Prioritize loading first few images
   }));
 
-  // Approximate positions for the string lights (percentages)
+  // Refined positions for the string lights to outline the heart shape better
   const lightPositions: LightPosition[] = [
-    { style: { top: '-2%', left: '49%' } }, { style: { top: '5%', left: '35%' } },
-    { style: { top: '5%', left: '63%' } }, { style: { top: '15%', left: '22%' } },
-    { style: { top: '13%', left: '75%' } }, { style: { top: '28%', left: '10%' } },
-    { style: { top: '26%', left: '88%' } }, { style: { top: '42%', left: '2%' } },
-    { style: { top: '40%', left: '95%' } }, { style: { top: '55%', left: '12%' } },
-    { style: { top: '53%', left: '85%' } }, { style: { top: '68%', left: '25%' } },
-    { style: { top: '68%', left: '73%' } }, { style: { top: '80%', left: '35%' } },
-    { style: { top: '80%', left: '63%' } }, { style: { top: '90%', left: '48%' } },
-    // Lights slightly inside
-    { style: { top: '20%', left: '50%' } }, { style: { top: '38%', left: '35%' } },
-    { style: { top: '40%', left: '65%' } }, { style: { top: '60%', left: '45%' } },
-     { style: { top: '72%', left: '58%' } },
-  ];
+    { style: { top: '-2%', left: '49%' } }, // Top peak area
+    { style: { top: '8%', left: '30%' } },  // Upper left curve
+    { style: { top: '8%', left: '68%' } },  // Upper right curve
+    { style: { top: '20%', left: '15%' } }, // Mid-left curve
+    { style: { top: '20%', left: '83%' } }, // Mid-right curve
+    { style: { top: '35%', left: '5%' } },  // Outer mid-left bulge
+    { style: { top: '35%', left: '93%' } }, // Outer mid-right bulge
+    { style: { top: '50%', left: '10%' } }, // Side left lower bulge
+    { style: { top: '50%', left: '88%' } }, // Side right lower bulge
+    { style: { top: '65%', left: '20%' } }, // Lower-left inward curve start
+    { style: { top: '65%', left: '78%' } }, // Lower-right inward curve start
+    { style: { top: '78%', left: '30%' } }, // Bottom left point approach
+    { style: { top: '78%', left: '68%' } }, // Bottom right point approach
+    { style: { top: '88%', left: '49%' } }, // Bottom center point
+    // Optional inner lights for depth
+    { style: { top: '25%', left: '49%' } }, // Inner top center
+    { style: { top: '45%', left: '35%' } }, // Inner left side
+    { style: { top: '45%', left: '63%' } }, // Inner right side
+    { style: { top: '60%', left: '49%' } }, // Inner bottom center near point
+ ];
 
 
   return (
@@ -97,14 +108,14 @@ export default function BirthdayPage() {
 
       <main className="flex-grow flex flex-col items-center gap-16">
         {/* Heart-Shaped Photo Collage Section */}
-        <section className="w-full max-w-2xl fade-in" style={{ animationDelay: '0.2s' }}>
-          <h2 className="text-3xl font-heading font-semibold text-center mb-8 flex items-center justify-center gap-2">
+        <section className="w-full max-w-3xl fade-in" style={{ animationDelay: '0.2s' }}> {/* Increased max-width slightly */}
+          <h2 className="text-3xl font-heading font-semibold text-center mb-10 flex items-center justify-center gap-2"> {/* Increased margin-bottom */}
             <Heart className="text-accent w-7 h-7" />
             Our Cherished Moments
             <Heart className="text-accent w-7 h-7" />
           </h2>
           {/* Container for Absolute Positioning */}
-          <div className="relative w-full aspect-[4/3] max-w-xl mx-auto mb-12"> {/* Adjusted aspect ratio slightly */}
+          <div className="relative w-full aspect-[4/3.5] max-w-xl mx-auto mb-12"> {/* Adjusted aspect ratio for better heart shape */}
              {/* String Lights */}
             {lightPositions.map((light, index) => (
               <div
@@ -122,7 +133,7 @@ export default function BirthdayPage() {
             {collageImages.map((img, index) => (
               <div
                 key={index}
-                className="rounded-md overflow-hidden shadow-lg border-2 border-white/50 transform transition-transform duration-300 hover:scale-105 hover:z-20" // Added white border like photos
+                className="rounded-md overflow-hidden shadow-lg border-2 border-white/60 transform transition-transform duration-300 hover:scale-105 hover:z-20" // Slightly less opaque border
                 style={img.style}
               >
                 <Image
@@ -133,6 +144,7 @@ export default function BirthdayPage() {
                   height={200}
                   className="object-cover w-full h-full"
                   priority={img.priority}
+                  sizes="(max-width: 768px) 20vw, 15vw" // Provide sizes for optimization
                 />
               </div>
             ))}
@@ -162,6 +174,7 @@ export default function BirthdayPage() {
                       width={400}
                       height={400}
                       className="object-cover w-full h-auto md:h-full"
+                      sizes="(max-width: 768px) 90vw, 400px"
                     />
                   </div>
                   <div className="w-full md:w-1/2">
