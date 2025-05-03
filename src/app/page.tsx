@@ -4,7 +4,7 @@ import { Separator } from '@/components/ui/separator';
 import { Heart } from 'lucide-react';
 
 export default function BirthdayPage() {
-  // Placeholder images array (replace with actual image paths if available)
+  // Placeholder images array
   const collageImages = [
     { src: 'https://picsum.photos/300/300?random=1', alt: 'Cherished moment 1', hint: 'couple smiling' },
     { src: 'https://picsum.photos/300/300?random=2', alt: 'Cherished moment 2', hint: 'sunset beach' },
@@ -17,17 +17,10 @@ export default function BirthdayPage() {
     { src: 'https://picsum.photos/300/300?random=9', alt: 'Cherished moment 9', hint: 'pet cuddle' },
   ];
 
-  // Simplified grid layout approximating a heart shape
-  const heartGridAreas = [
-    'a', 'b', 'c',
-    'd', 'e', 'f',
-    '.', 'g', '.',
-  ];
-
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground p-4 md:p-8">
       <header className="text-center mb-12 fade-in">
-        <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground bg-primary/80 py-3 px-6 rounded-lg inline-block shadow-md mb-2">
+        <h1 className="text-4xl md:text-5xl font-heading font-bold text-primary-foreground bg-primary/80 py-3 px-6 rounded-lg inline-block shadow-md mb-2">
           Happy Birthday, My Love!
         </h1>
         <p className="text-lg text-muted-foreground italic">Celebrating You Today</p>
@@ -41,9 +34,9 @@ export default function BirthdayPage() {
             Our Cherished Moments
             <Heart className="text-accent w-7 h-7" />
           </h2>
-          {/* Simplified heart-like grid structure */}
-          <div className="grid grid-cols-3 gap-2 md:gap-4 w-full aspect-[4/3] md:aspect-square max-w-xl mx-auto">
-            {/* Row 1 */}
+          {/* Updated 9-image grid structure for a heart-like shape */}
+          <div className="grid grid-cols-3 grid-rows-4 gap-2 md:gap-4 w-full max-w-xl mx-auto aspect-square">
+            {/* Row 1: Center Image */}
             <div className="col-start-2 row-start-1 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
               <Image
                 data-ai-hint={collageImages[0].hint}
@@ -56,7 +49,7 @@ export default function BirthdayPage() {
               />
             </div>
 
-            {/* Row 2 */}
+            {/* Row 2: Full Row */}
             <div className="col-start-1 row-start-2 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
                <Image
                 data-ai-hint={collageImages[1].hint}
@@ -88,7 +81,7 @@ export default function BirthdayPage() {
               />
             </div>
 
-             {/* Row 3 */}
+             {/* Row 3: Full Row */}
              <div className="col-start-1 row-start-3 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
                <Image
                 data-ai-hint={collageImages[4].hint}
@@ -120,12 +113,22 @@ export default function BirthdayPage() {
               />
             </div>
 
-             {/* Row 4 */}
-             <div className="col-start-2 row-start-4 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
+             {/* Row 4: Outer Images */}
+             <div className="col-start-1 row-start-4 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
                <Image
                 data-ai-hint={collageImages[7].hint}
                 src={collageImages[7].src}
                 alt={collageImages[7].alt}
+                width={300}
+                height={300}
+                className="object-cover w-full h-full"
+              />
+            </div>
+             <div className="col-start-3 row-start-4 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
+               <Image
+                data-ai-hint={collageImages[8].hint}
+                src={collageImages[8].src}
+                alt={collageImages[8].alt}
                 width={300}
                 height={300}
                 className="object-cover w-full h-full"
@@ -141,7 +144,7 @@ export default function BirthdayPage() {
           <Card className="bg-card border-accent shadow-xl overflow-hidden border-2 border-dashed p-1">
              <div className="border border-primary rounded-lg p-4 md:p-6">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-3xl font-semibold text-primary-foreground flex items-center justify-center gap-2">
+                  <CardTitle className="text-3xl font-heading font-semibold text-primary-foreground flex items-center justify-center gap-2">
                     <Heart className="text-accent w-6 h-6" />
                     A Special Message For You
                     <Heart className="text-accent w-6 h-6" />

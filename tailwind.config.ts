@@ -12,7 +12,7 @@ export default {
   	extend: {
       fontFamily: {
         sans: ["var(--font-raleway)", ...fontFamily.sans], // Set Raleway as default sans
-        heading: ["var(--font-dancing-script)", ...fontFamily.sans], // Add Dancing Script for headings if needed elsewhere
+        heading: ["var(--font-dancing-script)", ...fontFamily.sans], // Add Dancing Script for headings
       },
   		colors: {
   			background: 'hsl(var(--background))',
