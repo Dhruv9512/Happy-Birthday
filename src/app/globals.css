@@ -8,30 +8,30 @@ body {
 
 @layer base {
   :root {
-    --background: 240 67% 94%; /* Light Lavender */
-    --foreground: 240 10% 10%; /* Darker foreground for contrast */
-    --card: 240 67% 94%; /* Light Lavender */
-    --card-foreground: 240 10% 10%; /* Darker foreground for contrast */
-    --popover: 240 67% 94%; /* Light Lavender */
-    --popover-foreground: 240 10% 10%; /* Darker foreground for contrast */
-    --primary: 350 100% 88%; /* Soft Pink */
-    --primary-foreground: 350 50% 30%; /* Darker pink/red for contrast */
-    --secondary: 240 60% 90%; /* Slightly adjusted Lavender */
+    --background: 240 67% 96%; /* Slightly lighter Lavender */
+    --foreground: 240 10% 15%; /* Darker foreground for contrast */
+    --card: 0 0% 100%; /* White card background for cleaner look */
+    --card-foreground: 240 10% 15%;
+    --popover: 0 0% 100%; /* White popover */
+    --popover-foreground: 240 10% 15%;
+    --primary: 350 100% 90%; /* Slightly softer Pink */
+    --primary-foreground: 350 60% 35%; /* Darker pink/red for contrast */
+    --secondary: 240 60% 92%; /* Slightly adjusted Lavender */
     --secondary-foreground: 240 10% 10%;
-    --muted: 240 50% 85%; /* Muted lavender */
+    --muted: 240 50% 88%; /* Muted lavender */
     --muted-foreground: 240 5% 45%;
-    --accent: 349 33% 57%; /* Rose Gold */
+    --accent: 349 45% 65%; /* Slightly richer Rose Gold */
     --accent-foreground: 0 0% 98%; /* White/Light foreground for accent */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 350 80% 80%; /* Pinkish border */
-    --input: 350 70% 85%; /* Pinkish input */
-    --ring: 349 33% 57%; /* Rose Gold ring */
-    --chart-1: 350 100% 88%; /* Soft Pink */
-    --chart-2: 349 33% 57%; /* Rose Gold */
-    --chart-3: 240 67% 94%; /* Light Lavender */
-    --chart-4: 350 80% 80%;
-    --chart-5: 240 50% 85%;
+    --border: 350 80% 85%; /* Pinkish border */
+    --input: 350 70% 90%; /* Lighter Pinkish input */
+    --ring: 349 45% 65%; /* Rose Gold ring */
+    --chart-1: 350 100% 90%;
+    --chart-2: 349 45% 65%;
+    --chart-3: 240 67% 96%;
+    --chart-4: 350 80% 85%;
+    --chart-5: 240 50% 88%;
     --radius: 0.75rem; /* Slightly more rounded corners */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -55,15 +55,15 @@ body {
     --secondary-foreground: 0 0% 98%;
     --muted: 240 10% 25%; /* Dark Muted Lavender */
     --muted-foreground: 0 0% 63.9%;
-    --accent: 349 40% 65%; /* Lighter Rose Gold for dark mode */
+    --accent: 349 45% 65%; /* Consistent Rose Gold */
     --accent-foreground: 0 0% 10%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 10% 30%; /* Dark border */
     --input: 240 10% 30%;
-    --ring: 349 40% 65%; /* Rose Gold ring */
+    --ring: 349 45% 65%; /* Rose Gold ring */
     --chart-1: 350 80% 70%;
-    --chart-2: 349 40% 65%;
+    --chart-2: 349 45% 65%;
     --chart-3: 240 20% 30%;
     --chart-4: 350 60% 60%;
     --chart-5: 240 15% 40%;
@@ -87,44 +87,53 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+     /* Add animated gradient background */
+    background: linear-gradient(-45deg, hsl(var(--background)), hsl(var(--primary)/0.1), hsl(var(--secondary)/0.15), hsl(var(--background)));
+	  background-size: 400% 400%;
+	  animation: gradientBG 15s ease infinite;
   }
 }
 
+/* Background Gradient Animation */
+@keyframes gradientBG {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
 /* Basic fade-in animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(15px); } /* Slightly increased translate */
   to { opacity: 1; transform: translateY(0); }
 }
 
 .fade-in {
-  animation: fadeIn 0.8s ease-in-out forwards;
+  animation: fadeIn 0.8s ease-out forwards; /* Changed easing */
 }
 
-/* Pulse animation for lights */
+/* Pulse animation for lights/heart */
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
-    filter: brightness(1);
+    opacity: 0.8; /* Start slightly transparent */
   }
   50% {
-     transform: scale(1.1);
-     filter: brightness(1.2);
+     transform: scale(1.15); /* Slightly larger scale */
+     opacity: 1; /* Full opacity at peak */
   }
 }
 
-.animate-pulse {
-   /* Slightly adjusted pulse for the heart icon */
+.animate-pulse-heart {
+   /* Renamed for clarity */
   animation: pulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-
-
-/* Heart shape SVG for potential use or reference */
-/* Not directly applied via class, but useful for structure */
-/*
-.heart-shape {
-  clip-path: path('M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z');
-}
-*/
 
 /* Add utility for backdrop blur */
 @layer utilities {
