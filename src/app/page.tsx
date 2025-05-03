@@ -19,11 +19,11 @@ export default function BirthdayPage() {
 
       <main className="flex-grow flex flex-col items-center gap-16">
 
-        {/* My Love For You Section - REVISED WITH DESCRIPTIONS */}
+        {/* My Thoughts On You Section - REVISED */}
         <section className="w-full max-w-5xl fade-in" style={{ animationDelay: '0.2s' }}>
           <h2 className="text-3xl font-heading font-semibold text-center mb-8 flex items-center justify-center gap-3 text-primary-foreground">
             <Heart className="text-accent w-7 h-7 fill-current" /> {/* Added fill */}
-            My Love For You...
+            My Thoughts On You...
             <Heart className="text-accent w-7 h-7 fill-current" /> {/* Added fill */}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -40,49 +40,49 @@ export default function BirthdayPage() {
                     className="object-cover transform hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                 <p className="text-6xl font-heading font-bold text-primary mt-auto mb-2">I</p> {/* Adjusted margin */}
+                 <p className="text-6xl font-heading font-bold text-primary mt-auto mb-2">I</p> {/* Kept "I" */}
                  <CardDescription className="text-muted-foreground text-sm mt-2">
                   ... admire your brilliant mind and insightful perspective. You see the world in such a unique and beautiful way.
                 </CardDescription>
               </CardContent>
             </Card>
 
-            {/* Card for "LOVE" */}
+            {/* Card for Admiration (Replaces LOVE) */}
             <Card className="overflow-hidden shadow-lg border-accent border-dashed border bg-card/50 hover:shadow-xl transition-shadow duration-300 flex flex-col">
               <CardContent className="p-4 flex flex-col items-center text-center flex-grow">
                 <div className="relative w-full aspect-square mb-4 rounded-lg overflow-hidden border-2 border-primary/50 shadow-inner">
                   <Image
                     data-ai-hint="Woman laughing heartily outdoors sunlight"
                     src="https://picsum.photos/300/300?random=12"
-                    alt="Moment LOVE - Represents Her Joy/Laughter"
+                    alt="Moment Admiration - Represents Her Joy/Laughter"
                     fill
                     sizes="(max-width: 768px) 80vw, 30vw"
                     className="object-cover transform hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                 <p className="text-6xl font-heading font-bold text-primary mt-auto mb-2">LOVE</p> {/* Adjusted margin */}
-                 <CardDescription className="text-muted-foreground text-sm mt-2">
-                  ... your infectious laughter and the way you find joy in the little things. Your happiness brightens my world.
+                 {/* Removed <p>LOVE</p> */}
+                 <CardDescription className="text-muted-foreground text-sm mt-auto"> {/* Adjusted margin */}
+                  ... cherish your infectious laughter and the way you find joy in the little things. Your happiness brightens my world.
                 </CardDescription>
               </CardContent>
             </Card>
 
-            {/* Card for "YOU" */}
+            {/* Card for Appreciation (Replaces YOU) */}
             <Card className="overflow-hidden shadow-lg border-accent border-dashed border bg-card/50 hover:shadow-xl transition-shadow duration-300 flex flex-col">
               <CardContent className="p-4 flex flex-col items-center text-center flex-grow">
                 <div className="relative w-full aspect-square mb-4 rounded-lg overflow-hidden border-2 border-primary/50 shadow-inner">
                   <Image
                     data-ai-hint="Woman showing kindness helping hand reaching out"
                     src="https://picsum.photos/300/300?random=13"
-                    alt="Moment YOU - Represents Her Kindness/Compassion"
+                    alt="Moment Appreciation - Represents Her Kindness/Compassion"
                     fill
                     sizes="(max-width: 768px) 80vw, 30vw"
                     className="object-cover transform hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                 <p className="text-6xl font-heading font-bold text-primary mt-auto mb-2">YOU</p> {/* Adjusted margin */}
-                 <CardDescription className="text-muted-foreground text-sm mt-2">
-                  ... and your incredibly kind heart. Your compassion and empathy inspire me every single day.
+                 {/* Removed <p>YOU</p> */}
+                 <CardDescription className="text-muted-foreground text-sm mt-auto"> {/* Adjusted margin */}
+                  ... appreciate your incredibly kind heart. Your compassion and empathy inspire me every single day.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -122,9 +122,9 @@ export default function BirthdayPage() {
                   <div className="w-full md:w-1/2">
                     <p className="text-lg leading-relaxed text-foreground">
                       My dearest, on your special day, I want to remind you how much you mean to me.
-                      Every moment with you is a treasure, and my love for you grows stronger each day.
+                      Every moment with you is a treasure, and my admiration for you grows stronger each day.
                       You bring so much joy and light into my life.
-                      Wishing you a birthday filled with love, laughter, and everything your heart desires.
+                      Wishing you a birthday filled with happiness, laughter, and everything your heart desires.
                     </p>
                     <p className="text-right mt-4 text-accent font-semibold italic">
                       Forever and always, <br />
