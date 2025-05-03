@@ -100,6 +100,23 @@ body {
   animation: fadeIn 0.8s ease-in-out forwards;
 }
 
+/* Pulse animation for lights */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px 4px rgba(254, 249, 195, 0.7), 0 0 12px 6px rgba(253, 230, 138, 0.5);
+  }
+  50% {
+    opacity: 0.6;
+     box-shadow: 0 0 5px 2px rgba(254, 249, 195, 0.5), 0 0 8px 4px rgba(253, 230, 138, 0.3);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
 /* Heart shape SVG for potential use or reference */
 /* Not directly applied via class, but useful for structure */
 /*

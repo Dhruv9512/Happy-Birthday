@@ -4,33 +4,86 @@ import { Separator } from '@/components/ui/separator';
 import { Heart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// Define type for image data including position and rotation
+type CollageImage = {
+  src: string;
+  alt: string;
+  hint: string;
+  style: React.CSSProperties;
+  priority?: boolean;
+};
+
+// Define type for light position
+type LightPosition = {
+  style: React.CSSProperties;
+};
+
 export default function BirthdayPage() {
-  // Expanded placeholder images array for a more detailed heart shape (25 images)
-  const collageImages = Array.from({ length: 25 }, (_, i) => ({
+  // Image positions and rotations for a heart shape using absolute positioning
+  // Values are percentages for responsiveness, rotations add dynamism
+  // Coordinates are approximate based on the reference image
+  const imageStyles: React.CSSProperties[] = [
+    // Top Center (Peak)
+    { top: '0%', left: '42%', width: '16%', transform: 'rotate(-2deg)', zIndex: 5 },
+    // Row 2
+    { top: '10%', left: '28%', width: '18%', transform: 'rotate(3deg)', zIndex: 4 },
+    { top: '10%', left: '54%', width: '18%', transform: 'rotate(-4deg)', zIndex: 4 },
+    // Row 3
+    { top: '22%', left: '15%', width: '20%', transform: 'rotate(-5deg)', zIndex: 3 },
+    { top: '20%', left: '40%', width: '20%', transform: 'rotate(2deg)', zIndex: 6 }, // Central overlap
+    { top: '22%', left: '65%', width: '20%', transform: 'rotate(4deg)', zIndex: 3 },
+    // Row 4
+    { top: '38%', left: '5%', width: '22%', transform: 'rotate(6deg)', zIndex: 2 },
+    { top: '35%', left: '27%', width: '20%', transform: 'rotate(-3deg)', zIndex: 7 },
+    { top: '35%', left: '53%', width: '20%', transform: 'rotate(1deg)', zIndex: 7 },
+    { top: '38%', left: '73%', width: '22%', transform: 'rotate(-5deg)', zIndex: 2 },
+     // Row 5 (More central)
+    { top: '50%', left: '18%', width: '20%', transform: 'rotate(-4deg)', zIndex: 8 },
+    { top: '48%', left: '40%', width: '20%', transform: 'rotate(0deg)', zIndex: 9 }, // Bottom overlap
+    { top: '50%', left: '62%', width: '20%', transform: 'rotate(5deg)', zIndex: 8 },
+    // Row 6
+    { top: '65%', left: '30%', width: '18%', transform: 'rotate(3deg)', zIndex: 10 },
+    { top: '65%', left: '52%', width: '18%', transform: 'rotate(-2deg)', zIndex: 10 },
+    // Bottom Point
+    { top: '78%', left: '41%', width: '18%', transform: 'rotate(1deg)', zIndex: 11 },
+    // Extra smaller images for filling gaps (adjust positions as needed)
+    { top: '18%', left: '5%', width: '12%', transform: 'rotate(10deg)', zIndex: 1 },
+    { top: '18%', left: '83%', width: '12%', transform: 'rotate(-8deg)', zIndex: 1 },
+    { top: '30%', left: '0%', width: '10%', transform: 'rotate(-10deg)', zIndex: 0 },
+    { top: '30%', left: '90%', width: '10%', transform: 'rotate(12deg)', zIndex: 0 },
+    { top: '55%', left: '5%', width: '13%', transform: 'rotate(8deg)', zIndex: 7 },
+    { top: '55%', left: '82%', width: '13%', transform: 'rotate(-6deg)', zIndex: 7 },
+    { top: '75%', left: '20%', width: '12%', transform: 'rotate(-7deg)', zIndex: 9 },
+    { top: '75%', left: '68%', width: '12%', transform: 'rotate(6deg)', zIndex: 9 },
+  ];
+
+
+  const collageImages: CollageImage[] = imageStyles.map((style, i) => ({
     src: `https://picsum.photos/200/200?random=${i + 1}`,
     alt: `Cherished moment ${i + 1}`,
-    hint: i % 3 === 0 ? 'couple nature' : i % 3 === 1 ? 'friends laughing' : 'city travel',
-    // Grid position [row, col]. Using 1-based indexing for clarity.
-    // Designed for a 7x7 grid to approximate heart shape.
-    position: [
-      // Row 1
-      [1, 4],
-      // Row 2
-      [2, 3], [2, 4], [2, 5],
-      // Row 3
-      [3, 2], [3, 3], [3, 4], [3, 5], [3, 6],
-      // Row 4
-      [4, 1], [4, 2], [4, 3], [4, 4], [4, 5], [4, 6], [4, 7],
-      // Row 5
-      [5, 2], [5, 3], [5, 4], [5, 5], [5, 6],
-      // Row 6
-      [6, 3], [6, 4], [6, 5],
-      // Row 7
-      [7, 4]
-    ][i],
-     // Add subtle random rotations
-    rotation: `rotate(${Math.floor(Math.random() * 7) - 3}deg)` // -3 to +3 degrees
+    hint: i % 3 === 0 ? 'couple smile' : i % 3 === 1 ? 'love hug' : 'happy travel',
+    style: {
+      position: 'absolute',
+      ...style,
+    },
+    priority: i < 9, // Prioritize loading first few images
   }));
+
+  // Approximate positions for the string lights (percentages)
+  const lightPositions: LightPosition[] = [
+    { style: { top: '-2%', left: '49%' } }, { style: { top: '5%', left: '35%' } },
+    { style: { top: '5%', left: '63%' } }, { style: { top: '15%', left: '22%' } },
+    { style: { top: '13%', left: '75%' } }, { style: { top: '28%', left: '10%' } },
+    { style: { top: '26%', left: '88%' } }, { style: { top: '42%', left: '2%' } },
+    { style: { top: '40%', left: '95%' } }, { style: { top: '55%', left: '12%' } },
+    { style: { top: '53%', left: '85%' } }, { style: { top: '68%', left: '25%' } },
+    { style: { top: '68%', left: '73%' } }, { style: { top: '80%', left: '35%' } },
+    { style: { top: '80%', left: '63%' } }, { style: { top: '90%', left: '48%' } },
+    // Lights slightly inside
+    { style: { top: '20%', left: '50%' } }, { style: { top: '38%', left: '35%' } },
+    { style: { top: '40%', left: '65%' } }, { style: { top: '60%', left: '45%' } },
+     { style: { top: '72%', left: '58%' } },
+  ];
 
 
   return (
@@ -44,32 +97,42 @@ export default function BirthdayPage() {
 
       <main className="flex-grow flex flex-col items-center gap-16">
         {/* Heart-Shaped Photo Collage Section */}
-        <section className="w-full max-w-3xl fade-in" style={{ animationDelay: '0.2s' }}>
-          <h2 className="text-3xl font-semibold text-center mb-8 flex items-center justify-center gap-2">
+        <section className="w-full max-w-2xl fade-in" style={{ animationDelay: '0.2s' }}>
+          <h2 className="text-3xl font-heading font-semibold text-center mb-8 flex items-center justify-center gap-2">
             <Heart className="text-accent w-7 h-7" />
             Our Cherished Moments
             <Heart className="text-accent w-7 h-7" />
           </h2>
-          {/* Updated Grid for Heart Shape */}
-          <div className="relative grid grid-cols-7 grid-rows-7 gap-1 md:gap-2 w-full max-w-xl mx-auto aspect-square">
+          {/* Container for Absolute Positioning */}
+          <div className="relative w-full aspect-[4/3] max-w-xl mx-auto mb-12"> {/* Adjusted aspect ratio slightly */}
+             {/* String Lights */}
+            {lightPositions.map((light, index) => (
+              <div
+                key={`light-${index}`}
+                className="absolute w-2 h-2 md:w-3 md:h-3 rounded-full bg-yellow-200 shadow-[0_0_8px_4px_rgba(254,249,195,0.7),0_0_12px_6px_rgba(253,230,138,0.5)] animate-pulse"
+                style={{
+                  ...light.style,
+                  animationDelay: `${Math.random() * 1.5}s`, // Stagger pulse animation
+                  zIndex: 0, // Ensure lights are behind photos
+                }}
+              />
+            ))}
+
+            {/* Images */}
             {collageImages.map((img, index) => (
               <div
                 key={index}
-                className="rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-110 hover:z-10"
-                style={{
-                  gridRowStart: img.position[0],
-                  gridColumnStart: img.position[1],
-                  transform: img.rotation, // Apply rotation
-                }}
+                className="rounded-md overflow-hidden shadow-lg border-2 border-white/50 transform transition-transform duration-300 hover:scale-105 hover:z-20" // Added white border like photos
+                style={img.style}
               >
                 <Image
                   data-ai-hint={img.hint}
                   src={img.src}
                   alt={img.alt}
-                  width={200} // Smaller images for more detail
+                  width={200}
                   height={200}
                   className="object-cover w-full h-full"
-                  priority={index < 9} // Prioritize loading first few images
+                  priority={img.priority}
                 />
               </div>
             ))}

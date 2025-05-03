@@ -92,11 +92,22 @@ export default {
            '0%': { opacity: '0' },
            '100%': { opacity: '1' },
          },
+         pulse: { // Added pulse keyframes
+            '0%, 100%': {
+              opacity: '1',
+              boxShadow: '0 0 8px 4px rgba(254, 249, 195, 0.7), 0 0 12px 6px rgba(253, 230, 138, 0.5)',
+             },
+            '50%': {
+               opacity: '0.6',
+               boxShadow: '0 0 5px 2px rgba(254, 249, 195, 0.5), 0 0 8px 4px rgba(253, 230, 138, 0.3)',
+             },
+         },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.8s ease-in-out forwards', // Added fade-in animation
+        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite', // Added pulse animation
   		}
   	}
   },
