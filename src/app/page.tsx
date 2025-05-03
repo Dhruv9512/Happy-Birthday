@@ -2,68 +2,78 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Heart, Gift } from 'lucide-react'; // Added Gift icon
+import { Heart, Gift, Camera } from 'lucide-react'; // Added Camera icon, kept Heart and Gift
 import { cn } from '@/lib/utils';
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'; // Added ScrollArea components
 
-// Define type for individual memory images
-type MemoryImage = {
+// Define type for individual memory images - REPURPOSED FOR I LOVE YOU SECTION
+type LoveLetterImage = {
   src: string;
   alt: string;
   hint: string;
-  caption: string;
-  priority?: boolean;
+  gridClass: string; // Class for grid placement
 };
 
 export default function BirthdayPage() {
-  // Array for individual memory photos
-  const memoryImages: MemoryImage[] = [
+  // Array for images used in the "I LOVE YOU" grid
+  // Need 8 images for I L O V E Y O U
+  const loveLetterImages: LoveLetterImage[] = [
+    // I (1 image)
     {
       src: `https://picsum.photos/300/400?random=1`,
-      alt: "Memory 1 - Park Fun",
-      hint: "happy couple park",
-      caption: "That unforgettable day at the park, full of laughter.",
-      priority: true,
+      alt: "Memory 'I'",
+      hint: "happy couple smile",
+      gridClass: "col-start-2 row-start-1 row-span-2", // Position for 'I'
+    },
+    // L (2 images)
+    {
+      src: `https://picsum.photos/300/300?random=2`,
+      alt: "Memory 'L' top",
+      hint: "holding hands close",
+      gridClass: "col-start-4 row-start-1", // Position for 'L' top
     },
     {
-      src: `https://picsum.photos/300/400?random=2`,
-      alt: "Memory 2 - Celebration",
-      hint: "birthday cake friends",
-      caption: "Celebrating your milestones, surrounded by joy.",
-      priority: true,
+      src: `https://picsum.photos/300/300?random=3`,
+      alt: "Memory 'L' bottom",
+      hint: "walking together sunset",
+      gridClass: "col-start-4 row-start-2", // Position for 'L' bottom
     },
-    {
-      src: `https://picsum.photos/300/400?random=3`,
-      alt: "Memory 3 - Coffee Date",
+     // O (placeholder/gap) - Handled by grid layout
+
+    // V (2 images)
+     {
+      src: `https://picsum.photos/300/300?random=4`,
+      alt: "Memory 'V' left",
+      hint: "candid laughing outdoor",
+      gridClass: "col-start-6 row-start-1", // Position for 'V' left
+    },
+     {
+      src: `https://picsum.photos/300/300?random=5`,
+      alt: "Memory 'V' right",
+      hint: "picnic park blanket",
+      gridClass: "col-start-7 row-start-1", // Position for 'V' right
+    },
+    // E (3 images) - Simplified E
+     {
+      src: `https://picsum.photos/300/300?random=6`,
+      alt: "Memory 'E' left",
       hint: "cozy coffee shop window",
-      caption: "Quiet moments and warm coffee shared together.",
-      priority: true,
+      gridClass: "col-start-9 row-start-1 row-span-2", // Position for 'E' vertical bar
     },
-    {
-      src: `https://picsum.photos/300/400?random=4`,
-      alt: "Memory 4 - Adventure",
-      hint: "travel sunset silhouette",
-      caption: "Adventures under the beautiful setting sun.",
+     {
+      src: `https://picsum.photos/300/300?random=7`,
+      alt: "Memory 'E' top",
+      hint: "watching movie couch",
+      gridClass: "col-start-10 row-start-1", // Position for 'E' top bar
     },
-    {
-      src: `https://picsum.photos/300/400?random=5`,
-      alt: "Memory 5 - Candid Laughter",
-      hint: "laughing couple candid outdoor",
-      caption: "Your infectious laughter, the best sound in the world.",
+     {
+      src: `https://picsum.photos/300/300?random=8`,
+      alt: "Memory 'E' bottom",
+      hint: "cooking together kitchen",
+      gridClass: "col-start-10 row-start-2", // Position for 'E' bottom bar
     },
-    {
-      src: `https://picsum.photos/300/400?random=6`,
-      alt: "Memory 6 - Beach Relaxation",
-      hint: "beach sunset couple walking",
-      caption: "Relaxing walks by the ocean waves.",
-    },
-      {
-      src: `https://picsum.photos/300/400?random=7`,
-      alt: "Memory 7 - City Lights",
-      hint: "city night view couple",
-      caption: "Exploring the city lights hand-in-hand.",
-    },
+     // Y O U will be text
   ];
+
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground p-4 md:p-8">
@@ -75,38 +85,48 @@ export default function BirthdayPage() {
       </header>
 
       <main className="flex-grow flex flex-col items-center gap-16">
-        {/* Memory Photos Section */}
-        <section className="w-full max-w-5xl fade-in" style={{ animationDelay: '0.2s' }}>
-          <h2 className="text-3xl font-heading font-semibold text-center mb-8 flex items-center justify-center gap-3">
-            <Gift className="text-accent w-7 h-7" />
-            Beautiful Memories We've Made
-            <Gift className="text-accent w-7 h-7" />
+
+        {/* I LOVE YOU Section */}
+        <section className="w-full max-w-6xl fade-in" style={{ animationDelay: '0.2s' }}>
+          <h2 className="text-3xl font-heading font-semibold text-center mb-8 flex items-center justify-center gap-3 text-primary-foreground">
+            <Camera className="text-accent w-7 h-7" />
+             A Special Arrangement... Just For You
+            <Camera className="text-accent w-7 h-7" />
           </h2>
-          <ScrollArea className="w-full whitespace-nowrap rounded-md border border-accent/30 shadow-inner">
-            <div className="flex w-max space-x-4 p-4">
-              {memoryImages.map((img, index) => (
-                <Card key={index} className="w-[250px] md:w-[280px] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-primary/40 hover:border-primary">
-                  <CardContent className="p-0">
-                    <Image
-                      data-ai-hint={img.hint}
-                      src={img.src}
-                      alt={img.alt}
-                      width={300}
-                      height={400}
-                      className="object-cover w-full h-[300px] md:h-[350px]" // Consistent height
-                      priority={img.priority}
-                      sizes="(max-width: 768px) 60vw, (max-width: 1024px) 30vw, 280px"
-                    />
-                  </CardContent>
-                  <CardFooter className="p-3 md:p-4 min-h-[60px] flex items-center justify-center bg-card/50 border-t border-accent/20">
-                    <p className="text-sm text-center text-foreground/90 italic leading-snug">{img.caption}</p>
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
-            <ScrollBar orientation="horizontal" className="h-2.5"/>
-          </ScrollArea>
-           <p className="text-center text-sm text-muted-foreground mt-4 italic">Scroll to see more moments...</p>
+          <div className="grid grid-cols-12 grid-rows-2 gap-2 md:gap-4 items-center justify-center p-4 rounded-lg border-2 border-dashed border-accent bg-card/30 shadow-inner">
+            {/* Images forming letters */}
+            {loveLetterImages.map((img, index) => (
+              <div key={index} className={cn("relative aspect-square w-full h-full overflow-hidden rounded-md shadow-md hover:shadow-xl transition-all duration-300", img.gridClass)}>
+                <Image
+                  data-ai-hint={img.hint}
+                  src={img.src}
+                  alt={img.alt}
+                  fill // Use fill and object-cover for responsive images within grid cells
+                  sizes="(max-width: 768px) 15vw, 10vw" // Adjust sizes based on grid
+                  className="object-cover"
+                />
+              </div>
+            ))}
+
+            {/* Text for YOU */}
+             {/* Y */}
+             <div className="col-start-2 col-span-1 row-start-3 flex items-center justify-center">
+                <span className="text-4xl md:text-6xl font-heading text-primary font-bold">Y</span>
+             </div>
+             {/* O */}
+              <div className="col-start-4 col-span-1 row-start-3 flex items-center justify-center">
+                 <span className="text-4xl md:text-6xl font-heading text-primary font-bold">O</span>
+             </div>
+             {/* U */}
+             <div className="col-start-6 col-span-1 row-start-3 flex items-center justify-center">
+                 <span className="text-4xl md:text-6xl font-heading text-primary font-bold">U</span>
+             </div>
+              {/* Heart Symbol - Can be placed centrally or creatively */}
+             <div className="col-start-8 col-span-1 row-start-3 flex items-center justify-center text-accent">
+                 <Heart className="w-12 h-12 md:w-16 md:h-16 fill-current" />
+             </div>
+          </div>
+           <p className="text-center text-sm text-muted-foreground mt-4 italic">...spells out how much I adore you!</p>
         </section>
 
         <Separator className="my-8 bg-accent/50 w-3/4 mx-auto" />
@@ -117,9 +137,9 @@ export default function BirthdayPage() {
              <div className="border border-primary rounded-lg p-4 md:p-6">
                 <CardHeader className="text-center">
                   <CardTitle className="text-3xl font-heading font-semibold text-primary-foreground flex items-center justify-center gap-2">
-                    <Heart className="text-accent w-6 h-6" />
+                    <Gift className="text-accent w-6 h-6" /> {/* Changed icon back to Gift */}
                     A Special Message For You
-                    <Heart className="text-accent w-6 h-6" />
+                    <Gift className="text-accent w-6 h-6" /> {/* Changed icon back to Gift */}
                   </CardTitle>
                   <CardDescription className="text-muted-foreground mt-2">From my heart to yours</CardDescription>
                 </CardHeader>
@@ -154,7 +174,7 @@ export default function BirthdayPage() {
       </main>
 
       <footer className="text-center mt-16 py-4 text-muted-foreground text-sm fade-in" style={{ animationDelay: '0.6s' }}>
-        <p>Made with Love <Heart className="inline w-4 h-4 text-accent" /></p>
+        <p>Made with Love <Heart className="inline w-4 h-4 text-accent fill-current" /></p> {/* Added fill */}
       </footer>
     </div>
   );
