@@ -67,6 +67,8 @@ export default {
   			}
   		},
   		borderRadius: {
+        // Increased roundness
+        xl: 'calc(var(--radius) + 4px)', // Added xl for more options
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
@@ -88,28 +90,34 @@ export default {
   					height: '0'
   				}
   			},
-        'fade-in': {
-           '0%': { opacity: '0' },
-           '100%': { opacity: '1' },
+        'fade-in': { // Adjusted fade-in
+           '0%': { opacity: '0', transform: 'translateY(10px)' },
+           '100%': { opacity: '1', transform: 'translateY(0)' },
          },
-         pulse: { // Added pulse keyframes
+         pulse: { // Adjusted pulse keyframes for subtle effect
             '0%, 100%': {
-              opacity: '1',
-              boxShadow: '0 0 8px 4px rgba(254, 249, 195, 0.7), 0 0 12px 6px rgba(253, 230, 138, 0.5)',
+              transform: 'scale(1)',
+              filter: 'brightness(1)'
              },
             '50%': {
-               opacity: '0.6',
-               boxShadow: '0 0 5px 2px rgba(254, 249, 195, 0.5), 0 0 8px 4px rgba(253, 230, 138, 0.3)',
+               transform: 'scale(1.1)', // Slightly larger scale
+               filter: 'brightness(1.2)', // Slightly brighter
              },
          },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in': 'fade-in 0.8s ease-in-out forwards', // Added fade-in animation
-        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite', // Added pulse animation
+        'fade-in': 'fade-in 0.8s ease-in-out forwards',
+        'pulse': 'pulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite', // Slightly faster pulse
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+      require("tailwindcss-animate"),
+      require('tailwindcss-filters'), // Added filters plugin for backdrop-blur
+    ],
+  corePlugins: { // Ensure backdrop-filter is enabled if not by default
+     backdropFilter: true,
+   },
 } satisfies Config;
