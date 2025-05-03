@@ -2,20 +2,36 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Heart } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export default function BirthdayPage() {
-  // Placeholder images array
-  const collageImages = [
-    { src: 'https://picsum.photos/300/300?random=1', alt: 'Cherished moment 1', hint: 'couple smiling' },
-    { src: 'https://picsum.photos/300/300?random=2', alt: 'Cherished moment 2', hint: 'sunset beach' },
-    { src: 'https://picsum.photos/300/300?random=3', alt: 'Cherished moment 3', hint: 'laughing friends' },
-    { src: 'https://picsum.photos/300/300?random=4', alt: 'Cherished moment 4', hint: 'city lights' },
-    { src: 'https://picsum.photos/300/300?random=5', alt: 'Cherished moment 5', hint: 'nature walk' },
-    { src: 'https://picsum.photos/300/300?random=6', alt: 'Cherished moment 6', hint: 'cozy home' },
-    { src: 'https://picsum.photos/300/300?random=7', alt: 'Cherished moment 7', hint: 'celebration cake' },
-    { src: 'https://picsum.photos/300/300?random=8', alt: 'Cherished moment 8', hint: 'travel adventure' },
-    { src: 'https://picsum.photos/300/300?random=9', alt: 'Cherished moment 9', hint: 'pet cuddle' },
-  ];
+  // Expanded placeholder images array for a more detailed heart shape (25 images)
+  const collageImages = Array.from({ length: 25 }, (_, i) => ({
+    src: `https://picsum.photos/200/200?random=${i + 1}`,
+    alt: `Cherished moment ${i + 1}`,
+    hint: i % 3 === 0 ? 'couple nature' : i % 3 === 1 ? 'friends laughing' : 'city travel',
+    // Grid position [row, col]. Using 1-based indexing for clarity.
+    // Designed for a 7x7 grid to approximate heart shape.
+    position: [
+      // Row 1
+      [1, 4],
+      // Row 2
+      [2, 3], [2, 4], [2, 5],
+      // Row 3
+      [3, 2], [3, 3], [3, 4], [3, 5], [3, 6],
+      // Row 4
+      [4, 1], [4, 2], [4, 3], [4, 4], [4, 5], [4, 6], [4, 7],
+      // Row 5
+      [5, 2], [5, 3], [5, 4], [5, 5], [5, 6],
+      // Row 6
+      [6, 3], [6, 4], [6, 5],
+      // Row 7
+      [7, 4]
+    ][i],
+     // Add subtle random rotations
+    rotation: `rotate(${Math.floor(Math.random() * 7) - 3}deg)` // -3 to +3 degrees
+  }));
+
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground p-4 md:p-8">
@@ -34,106 +50,29 @@ export default function BirthdayPage() {
             Our Cherished Moments
             <Heart className="text-accent w-7 h-7" />
           </h2>
-          {/* Updated 9-image grid structure for a heart-like shape */}
-          <div className="grid grid-cols-3 grid-rows-4 gap-2 md:gap-4 w-full max-w-xl mx-auto aspect-square">
-            {/* Row 1: Center Image */}
-            <div className="col-start-2 row-start-1 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-              <Image
-                data-ai-hint={collageImages[0].hint}
-                src={collageImages[0].src}
-                alt={collageImages[0].alt}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full"
-                priority
-              />
-            </div>
-
-            {/* Row 2: Full Row */}
-            <div className="col-start-1 row-start-2 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-               <Image
-                data-ai-hint={collageImages[1].hint}
-                src={collageImages[1].src}
-                alt={collageImages[1].alt}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <div className="col-start-2 row-start-2 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-               <Image
-                data-ai-hint={collageImages[2].hint}
-                src={collageImages[2].src}
-                alt={collageImages[2].alt}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full"
-              />
-            </div>
-             <div className="col-start-3 row-start-2 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-               <Image
-                data-ai-hint={collageImages[3].hint}
-                src={collageImages[3].src}
-                alt={collageImages[3].alt}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full"
-              />
-            </div>
-
-             {/* Row 3: Full Row */}
-             <div className="col-start-1 row-start-3 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-               <Image
-                data-ai-hint={collageImages[4].hint}
-                src={collageImages[4].src}
-                alt={collageImages[4].alt}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <div className="col-start-2 row-start-3 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-               <Image
-                data-ai-hint={collageImages[5].hint}
-                src={collageImages[5].src}
-                alt={collageImages[5].alt}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full"
-              />
-            </div>
-             <div className="col-start-3 row-start-3 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-               <Image
-                data-ai-hint={collageImages[6].hint}
-                src={collageImages[6].src}
-                alt={collageImages[6].alt}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full"
-              />
-            </div>
-
-             {/* Row 4: Outer Images */}
-             <div className="col-start-1 row-start-4 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-               <Image
-                data-ai-hint={collageImages[7].hint}
-                src={collageImages[7].src}
-                alt={collageImages[7].alt}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full"
-              />
-            </div>
-             <div className="col-start-3 row-start-4 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-               <Image
-                data-ai-hint={collageImages[8].hint}
-                src={collageImages[8].src}
-                alt={collageImages[8].alt}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full"
-              />
-            </div>
+          {/* Updated Grid for Heart Shape */}
+          <div className="relative grid grid-cols-7 grid-rows-7 gap-1 md:gap-2 w-full max-w-xl mx-auto aspect-square">
+            {collageImages.map((img, index) => (
+              <div
+                key={index}
+                className="rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-110 hover:z-10"
+                style={{
+                  gridRowStart: img.position[0],
+                  gridColumnStart: img.position[1],
+                  transform: img.rotation, // Apply rotation
+                }}
+              >
+                <Image
+                  data-ai-hint={img.hint}
+                  src={img.src}
+                  alt={img.alt}
+                  width={200} // Smaller images for more detail
+                  height={200}
+                  className="object-cover w-full h-full"
+                  priority={index < 9} // Prioritize loading first few images
+                />
+              </div>
+            ))}
           </div>
         </section>
 
@@ -155,7 +94,7 @@ export default function BirthdayPage() {
                   <div className="w-full md:w-1/2 flex-shrink-0 rounded-lg overflow-hidden shadow-md border-4 border-primary/50">
                     <Image
                       data-ai-hint="romantic couple portrait"
-                      src="https://picsum.photos/400/400?random=10" // Specific photo for the message
+                      src="https://picsum.photos/400/400?random=100" // Specific photo for the message
                       alt="Special birthday photo"
                       width={400}
                       height={400}
