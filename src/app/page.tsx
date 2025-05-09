@@ -31,7 +31,7 @@ export default function BirthdayPage() {
           "drop-shadow-xl" // Enhanced drop shadow
         )}>
           <Gift className="inline-block w-10 h-10 mr-4 text-accent drop-shadow-md transform -rotate-12" />
-          Happy Birthday, My Dearest!
+          Happy Birthday, Boku no subete!
           <Gift className="inline-block w-10 h-10 ml-4 text-accent drop-shadow-md transform rotate-12" />
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground italic font-medium relative z-10 max-w-xl mx-auto">
@@ -60,7 +60,7 @@ export default function BirthdayPage() {
               <div className="relative w-full aspect-video overflow-hidden"> {/* Changed aspect ratio */}
                 <Image
                   data-ai-hint="Woman smiling warmly sunlit garden soft focus"
-                  src="https://picsum.photos/400/225?random=41" // Adjusted dimensions
+                  src="https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/WhatsApp%20Image%202025-05-09%20at%2010.59.43_494225fc-bm5rOdDBukCrFdXdezP8fuJaKc3Lpu.jpg" // Adjusted dimensions
                   alt="Your Beautiful Smile"
                   fill
                   sizes="(max-width: 768px) 90vw, 30vw"
