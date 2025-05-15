@@ -143,14 +143,15 @@ export default function BirthdayPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"> {/* Changed grid layout */}
 
             {[
-              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M4-9T2WX9p14jgEeCMloEIj8WP2rMCD45.jpg", alt: "Simple moments", hint: "hands holding close up warmth comfort", description: "The simple, perfect moments." },
-              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M10-nv2qunAnbVaU4Pfi905DLgplJUav3E.jpg", hint: "couple laughing coffee shop natural light", description: "Every laugh shared." },
-              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M8-682CJ7gWlViV8GHUJW9omhUijQtrMw.jpg", alt: "Quiet adventures", hint: "couple hiking forest path serene peaceful", description: "Quiet adventures together." },
-              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M6-29DxH7GIA5uKIVFCc39Gclqcc45IPN.jpg", alt: "Sunny days", hint: "couple picnic blanket park sunny day", description: "Bright sunny days." },
-              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M9-vG7sLbZnWEN1txAtM6yeJdnbvlsqhY.jpg", alt: "Sunny days", hint: "couple picnic blanket park sunny day", description: "Bright sunny days." },
-              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M3-YuddJAdbHFU6wlOS1a0Dtlm4z3EAva.jpg", alt: "Sunny days", hint: "couple picnic blanket park sunny day", description: "Bright sunny days." },
-              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M1-nOZNsxisdTYwEEtMFoxn6U4Izq2cN4.jpg", alt: "Sunny days", hint: "couple picnic blanket park sunny day", description: "Bright sunny days." },
-              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M11-kXoV5rubiqKG0e6g1uwakgNFG32TwG.jpg", alt: "Sunny days", hint: "couple picnic blanket park sunny day", description: "Bright sunny days." },
+              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M4-9T2WX9p14jgEeCMloEIj8WP2rMCD45.jpg", alt: "Simple moments", hint: "hands holding close up warmth comfort", description: "Your ada makes every moment unforgettable." },
+              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M10-nv2qunAnbVaU4Pfi905DLgplJUav3E.jpg", hint: "couple laughing coffee shop natural light", description: "Memories from your previous birthday." },
+              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M8-682CJ7gWlViV8GHUJW9omhUijQtrMw.jpg", alt: "Quiet adventures", hint: "couple hiking forest path serene peaceful", description: "Our Traditional Day" },
+              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M6-29DxH7GIA5uKIVFCc39Gclqcc45IPN.jpg", alt: "Sunny days", hint: "couple picnic blanket park sunny day", description: "Colors of Navratri." },
+              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M9-vG7sLbZnWEN1txAtM6yeJdnbvlsqhY.jpg", alt: "Sunny days", hint: "couple picnic blanket park sunny day", description: "Sunny Days & Travel Vibes." },
+              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M3-YuddJAdbHFU6wlOS1a0Dtlm4z3EAva.jpg", alt: "Sunny days", hint: "couple picnic blanket park sunny day", description: "Eyes That Outshine Eid Lights." },
+              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M13-LBlPTkDIagVHquxS2H5un6CZhuB8jW.jpg", alt: "Sunny days", hint: "couple picnic blanket park sunny day", description: "When Hunger Met Happiness." },
+              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M11-kXoV5rubiqKG0e6g1uwakgNFG32TwG.jpg", alt: "Sunny days", hint: "couple picnic blanket park sunny day", description: "Your Simplicity Shines." },
+              { src: "https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/M12-lGg621N3rNgNm4BcxNT7JyybS3zvZY.jpg", description: "Your lips always leave me speechless." },
             ].map((moment, index) => (
               <div key={index} className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 fade-in" style={{ animationDelay: getDelay(7 + index) }}>
                 <Image
