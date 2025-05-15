@@ -35,7 +35,7 @@ export default function BirthdayPage() {
           <Gift className="inline-block w-10 h-10 ml-4 text-accent drop-shadow-md transform rotate-12" />
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground italic font-medium relative z-10 max-w-xl mx-auto">
-        You shine brighter than all the stars. Being with you just makes everything better. Happy Birthday! I’m really glad you're a part of my life.
+          You shine brighter than all the stars. Being with you just makes everything better. Happy Birthday! I’m really glad you're a part of my life.
         </p>
         {/* Subtle overlay moved behind text */}
         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-background/5 to-transparent opacity-60 z-0"></div>
@@ -72,7 +72,7 @@ export default function BirthdayPage() {
               </div>
               <CardContent className="p-5 flex-grow">
                 <CardDescription className="text-muted-foreground text-base leading-relaxed text-center">
-                Your smile lights up every room and steals my breath away. When you smile, I forget everything else and just get lost in your happiness.
+                  Your smile lights up every room and steals my breath away. When you smile, I forget everything else and just get lost in your happiness.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -96,7 +96,7 @@ export default function BirthdayPage() {
               </div>
               <CardContent className="p-5 flex-grow">
                 <CardDescription className="text-muted-foreground text-base leading-relaxed text-center">
-                The world may see you in many ways, but to me, you are stunningly beautiful and perfectly you—just as you are, and that’s all I’ll ever see.
+                  The world may see you in many ways, but to me, you are stunningly beautiful and perfectly you—just as you are, and that’s all I’ll ever see.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -120,7 +120,7 @@ export default function BirthdayPage() {
               </div>
               <CardContent className="p-5 flex-grow">
                 <CardDescription className="text-muted-foreground text-base leading-relaxed text-center">
-                Even in your anger, your soul’s kindness shines bright. Every emotion you show reflects the beautiful, caring person you are inside.
+                  Even in your anger, your soul’s kindness shines bright. Every emotion you show reflects the beautiful, caring person you are inside.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -180,49 +180,65 @@ export default function BirthdayPage() {
 
 
         {/* Birthday Message Frame Section - Refined Look */}
-        <section className="w-full max-w-4xl px-4 fade-in" style={{ animationDelay: getDelay(13) }}>
-          <Card className="bg-card/90 border-primary shadow-xl overflow-hidden border-2 border-dashed p-1 rounded-2xl backdrop-blur-md"> {/* Increased blur and roundness */}
-            <div className="border border-accent/40 rounded-xl p-6 md:p-10 bg-card/50"> {/* Inner border and padding */}
-              <CardHeader className="text-center pb-6"> {/* Increased padding */}
+        <section
+          className="w-full max-w-4xl px-4 fade-in"
+          style={{ animationDelay: getDelay(13) }}
+        >
+          <Card className="bg-card/90 border-primary shadow-xl overflow-hidden border-2 border-dashed p-1 rounded-2xl backdrop-blur-md">
+            <div className="border border-accent/40 rounded-xl p-6 md:p-10 bg-card/50">
+              <CardHeader className="text-center pb-6">
                 <CardTitle className="text-3xl md:text-4xl font-heading font-semibold text-primary-foreground flex items-center justify-center gap-3">
                   <Gift className="text-accent w-8 h-8 md:w-9 md:h-9 transform -rotate-6" />
                   A Birthday Wish For You
                   <Gift className="text-accent w-8 h-8 md:w-9 md:h-9 transform rotate-6" />
                 </CardTitle>
-                <CardDescription className="text-muted-foreground mt-4 text-base md:text-lg"> {/* Larger description */}
+                <CardDescription className="text-muted-foreground mt-4 text-base md:text-lg">
                   From my heart to yours, with all my love.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 mt-6">
-                <div className="w-full lg:w-5/12 flex-shrink-0 rounded-lg overflow-hidden shadow-lg border-4 border-primary/20">
+
+              <CardContent className="flex flex-wrap items-center gap-8 md:gap-12 mt-6">
+                <div className="w-full flex-shrink-0 rounded-lg overflow-hidden shadow-lg border-4 border-primary/20">
                   <Image
                     data-ai-hint="romantic couple silhouette sunset beach soft light"
                     src="https://mphkxojdifbgafp1.public.blob.vercel-storage.com/Mitsuha/Birthday-hxSKIAm0BI4itaWNdyO5hLqPH3UDuv.jpg"
                     alt="A special moment"
                     width={400}
-                    height={500}
-                    className="object-contain w-full h-auto" // Use h-auto to preserve natural image height
-                    sizes="(max-width: 1024px) 80vw, 35vw"
+                    height={550}
+                    className="object-cover w-full h-full"
+                    sizes="(max-width: 1024px) 80vw, 50vw"
                   />
                 </div>
 
-                <div className="w-full lg:w-7/12">
+                <div className="w-full">
                   <p className="text-lg md:text-xl leading-relaxed text-foreground text-center lg:text-left">
-                    My dearest, on your special day, more than ever, I celebrate the incredible person you are.
-                    Every moment with you is a treasure, and my admiration for your spirit grows endlessly.
-                    You fill my world with unparalleled joy and light.
-                    <br /><br />
-                    <strong className='text-primary-foreground font-semibold'> Wishing you a birthday overflowing with happiness, laughter, and all the beautiful things you deserve.</strong> May this year bring you closer to your dreams and fill your days with love.
+                    <strong className="text-primary-foreground font-semibold">
+                      Happy Birthday, Hime!
+                    </strong>{" "}
+                    I don’t even know what to say, but I’m happier than you can imagine
+                    because it’s your special day. I feel so lucky to have met you.
+                    <br />
+                    <br />
+                    <strong className="text-primary-foreground font-semibold">
+                      May your birthday be filled with endless happiness, laughter, and
+                      everything your heart desires. Here’s to a year that brings you
+                      closer to your dreams and fills your life with all the love you
+                      deserve.
+                    </strong>{" "}
+                    And always remember, I’m here to support you, no matter what — today
+                    and every day.
                   </p>
+
                   <p className="text-right mt-8 text-accent font-semibold italic text-lg">
                     With all my love, <br />
-                    <span className="font-heading text-2xl">[Your Name]</span> {/* Replace with sender's name, styled */}
+                    <span className="font-heading text-2xl">[pagal ladka]</span>
                   </p>
                 </div>
               </CardContent>
             </div>
           </Card>
         </section>
+
       </main>
 
       <footer className="text-center mt-20 py-8 text-muted-foreground text-base fade-in" style={{ animationDelay: getDelay(14) }}> {/* Increased top margin */}
