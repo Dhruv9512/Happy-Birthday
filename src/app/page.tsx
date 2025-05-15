@@ -35,7 +35,7 @@ export default function BirthdayPage() {
           <Gift className="inline-block w-10 h-10 ml-4 text-accent drop-shadow-md transform rotate-12" />
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground italic font-medium relative z-10 max-w-xl mx-auto">
-          Celebrating You Today and Always! Wishing you a day as bright and beautiful as you are.
+        You shine brighter than all the stars. Being with you just makes everything better. Happy Birthday! I’m really glad you're a part of my life.
         </p>
         {/* Subtle overlay moved behind text */}
         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-background/5 to-transparent opacity-60 z-0"></div>
@@ -72,7 +72,7 @@ export default function BirthdayPage() {
               </div>
               <CardContent className="p-5 flex-grow">
                 <CardDescription className="text-muted-foreground text-base leading-relaxed text-center">
-                  It lights up every room and warms every heart. Truly infectious and beautiful.
+                Your smile lights up every room and steals my breath away. When you smile, I forget everything else and just get lost in your happiness.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -96,7 +96,7 @@ export default function BirthdayPage() {
               </div>
               <CardContent className="p-5 flex-grow">
                 <CardDescription className="text-muted-foreground text-base leading-relaxed text-center">
-                  Your resilience and grace in facing challenges are truly admirable and inspiring.
+                The world may see you in many ways, but to me, you are stunningly beautiful and perfectly you—just as you are, and that’s all I’ll ever see.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -105,7 +105,7 @@ export default function BirthdayPage() {
             <Card className="group overflow-hidden shadow-lg border-accent/30 border bg-card hover:shadow-xl transition-all duration-300 ease-in-out flex flex-col rounded-xl backdrop-blur-sm fade-in transform hover:-translate-y-2" style={{ animationDelay: getDelay(3) }}>
               <CardHeader className="pt-6 pb-2 flex flex-row items-center justify-center space-x-3">
                 <Star className="w-7 h-7 text-accent" /> {/* Changed icon */}
-                <CardTitle className="text-2xl font-semibold font-heading text-primary-foreground">Grace in Every Step, Love in Every Heartbeat.</CardTitle> {/* Changed title */}
+                <CardTitle className="text-2xl font-semibold font-heading text-primary-foreground">Your Beautiful Soul’s Glow Lights My World</CardTitle> {/* Changed title */}
               </CardHeader>
               <div className="relative w-full aspect-square overflow-hidden">
                 <Image
@@ -120,7 +120,7 @@ export default function BirthdayPage() {
               </div>
               <CardContent className="p-5 flex-grow">
                 <CardDescription className="text-muted-foreground text-base leading-relaxed text-center">
-                  Your enthusiasm for life and the things you love is captivating and bright.
+                Even in your anger, your soul’s kindness shines bright. Every emotion you show reflects the beautiful, caring person you are inside.
                 </CardDescription>
               </CardContent>
             </Card>
